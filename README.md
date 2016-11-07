@@ -1,8 +1,9 @@
-# fetchival.js [![Travis](https://img.shields.io/travis/typicode/fetchival.svg)](https://travis-ci.org/typicode/fetchival)
-
+# fetcher.js 
 > Makes writing JSON requests with [fetch](https://github.com/github/fetch) easier
 
-Fetchival is a tiny (0.5kb min/gz) fetch wrapper that can be used in the __browser__ (IE9+) and __Node__.
+> Originally forked from [fetcher.js](https://github.com/typicode/fetcher)
+
+Fetcher is a tiny (0.5kb min/gz) fetch wrapper that can be used in the __browser__ (IE9+) and __Node__.
 
 __Before__
 
@@ -15,8 +16,8 @@ fetch('/users', {
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    name: 'Typicode',
-    login: 'typicode',
+    name: 'pxlPotion',
+    login: 'pxlPotion',
   })
 })
 .then(function(response) {
@@ -34,9 +35,9 @@ __After__
 
 ```javascript
 // POST /users
-fetchival('/users').post({
-  name: 'Typicode',
-  login: 'typicode'
+fetcher('/users').post({
+  name: 'pxlPotion',
+  login: 'pxlPotion'
 })
 .then(function(json) {
   // ...
@@ -47,42 +48,37 @@ fetchival('/users').post({
 
 ## Installation
 
-Fetchival is available on Bower and npm
+fetcher is available on npm
 
 __Browser__
 
 ```bash
-bower install es6-promise fetch # polyfills
-bower install fetchival
-```
-
-```bash
 npm install es6-promise whatwg-fetch --save # polyfills
-npm install fetchival --save # Browserify
+npm install fetcher --save # Browserify
 ```
 
 __Node__
 
 ```bash
-npm install node-fetch fetchival --save
+npm install node-fetch fetcher --save
 ```
 
 ## Usage examples
 
 ```javascript
-var posts = fetchival('/posts')
+var posts = fetcher('/posts')
 
 //posts
 posts.get()
-posts.post({ title: 'Fetchival' })
+posts.post({ title: 'fetcher' })
 
 //posts?category=javascript
 posts.get({ category: 'javascript' })
 
 //posts/1
 posts(1).get()
-posts(1).put({ title: 'Fetchival is simple' })
-posts(1).patch({ title: 'Fetchival is simple' })
+posts(1).put({ title: 'fetcher is simple' })
+posts(1).patch({ title: 'fetcher is simple' })
 posts(1).delete()
 
 var comments = posts('1/comments')
@@ -94,17 +90,17 @@ comments.get()
 comments(1).get()
 ```
 
-You can also pass fetch options to `fetchival()`
+You can also pass fetch options to `fetcher()`
 
 ```javascript
-var posts = fetchival('/posts', fetchOptions)
+var posts = fetcher('/posts', fetchOptions)
 var comments = posts('1/comments') // Will inherit fetchOptions
 ```
 
 To catch errors
 
 ```javascript
-fetchival('/posts')
+fetcher('/posts')
   .get()
   .catch(function(err) {
     console.log(err)
@@ -114,24 +110,24 @@ fetchival('/posts')
 To enable CORS
 
 ```javascript
-var request = fetchival('/', { mode: 'cors' })
+var request = fetcher('/', { mode: 'cors' })
 var posts = request('posts')
 ```
 
 To fetch plain text (for example, HTML views)
 
 ```javascript
-var request = fetchival('/', { responseAs: 'text' })
+var request = fetcher('/', { responseAs: 'text' })
 var posts = request('posts')
 ```
 
 `responseAs` can be `response`, `text` or `json` (default)
 
-To use fetchival in Node, you need to install `node-fetch` and configure fetchival to use it
+To use fetcher in Node, you need to install `node-fetch` and configure fetcher to use it
 
 ```javascript
-var fetchival = require('fetchival')
-fetchival.fetch = require('node-fetch')
+var fetcher = require('fetcher')
+fetcher.fetch = require('node-fetch')
 ```
 
 ## Browser Support
@@ -142,4 +138,4 @@ Latest ✔ | Latest ✔ | 9+ ✔ | Latest ✔ | 6.1+ ✔ |
 
 ## License
 
-MIT - [Typicode](https://github.com/typicode)
+MIT - [PxlPotion](https://github.com/pxlpotion)
