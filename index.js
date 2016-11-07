@@ -1,10 +1,10 @@
-;(function (window) {
+;(function(window) {
 
-  function defaults (target, obj) {
+  function defaults(target, obj) {
     for (var prop in obj) target[prop] = target[prop] || obj[prop];
   }
 
-  function getQuery (queryParams) {
+  function getQuery(queryParams) {
     var params = '';
     if (typeof queryParams === "number" || typeof queryParams === "string") {
       params = '/' + queryParams;
@@ -20,7 +20,7 @@
     return params;
   }
 
-  function _fetch (method, url, opts, data, queryParams) {
+  function _fetch(method, url, opts, data, queryParams) {
     opts.method = method;
     opts.headers = opts.headers || {};
     opts.credentials = opts.credentials || 'same-origin';
@@ -36,13 +36,13 @@
     }
 
     if (data) {
-        opts.body = JSON.stringify(data);
+      opts.body = JSON.stringify(data);
     } else {
-        delete opts.body;
+      delete opts.body;
     }
 
     return fetcher.fetch(url, opts)
-      .then(function (response) {
+      .then(function(response) {
         if (response.status >= 200 && response.status < 300) {
           if(opts.responseAs=='response') {
             return response;
@@ -58,10 +58,10 @@
       });
   }
 
-  function fetcher (url, opts) {
+  function fetcher(url, opts) {
     opts = opts || {};
 
-    var _ = function (u, o) {
+    var _ = function(u, o) {
       // Extend parameters with previous ones
       u = url + '/' + u;
       o = o || {};
@@ -69,23 +69,23 @@
       return fetcher(u, o);
     };
 
-    _.get = function (queryParams) {
+    _.get = function(queryParams) {
       return _fetch('GET', url, opts, null, queryParams);
     };
 
-    _.post = function (data) {
+    _.post = function(data) {
       return _fetch('POST', url, opts, data);
     };
 
-    _.put = function (data) {
+    _.put = function(data) {
       return _fetch('PUT', url, opts, data);
     };
 
-    _.patch = function (data) {
+    _.patch = function(data) {
       return _fetch('PATCH', url, opts, data);
     };
 
-    _.delete = function () {
+    _.delete = function() {
       return _fetch('DELETE', url, opts);
     };
 
