@@ -4,18 +4,18 @@
     for (var prop in obj) target[prop] = target[prop] || obj[prop];
   }
 
-  // TODO: Strip trailing ampersand
   function getQuery (queryParams) {
     var params = '';
     if (typeof queryParams === "number" || typeof queryParams === "string") {
       params = '/' + queryParams;
     } else if (typeof queryParams === "object") {
-      params = '?';
+      params = [];
       for (var key in queryParams) {
         if (queryParams.hasOwnProperty(key)) {
-          params += key + '=' + queryParams[key] + '&';
+          params.push(key + '=' + queryParams[key]);
         }
       }
+      params = '?' + params.join('&');
     }
     return params;
   }
