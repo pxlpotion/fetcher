@@ -14,6 +14,7 @@
   function _fetch (method, url, opts, data, queryParams) {
     opts.method = method;
     opts.headers = opts.headers || {};
+    opts.credentials = opts.credentials || 'same-origin';
     opts.responseAs = (opts.responseAs && ['json', 'text', 'response'].indexOf(opts.responseAs) >= 0) ? opts.responseAs : 'json';
 
     defaults(opts.headers, {
