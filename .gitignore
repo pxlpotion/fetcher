@@ -2,6 +2,9 @@
 logs
 *.log
 
+#jshintrc
+.jshintrc
+
 # Runtime data
 pids
 *.pid
