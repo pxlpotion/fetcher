@@ -41,7 +41,7 @@
         delete opts.body;
     }
 
-    return fetchival.fetch(url, opts)
+    return fetcher.fetch(url, opts)
       .then(function (response) {
         if (response.status >= 200 && response.status < 300) {
           if(opts.responseAs=='response') {
@@ -58,7 +58,7 @@
       });
   }
 
-  function fetchival (url, opts) {
+  function fetcher (url, opts) {
     opts = opts || {};
 
     var _ = function (u, o) {
@@ -66,7 +66,7 @@
       u = url + '/' + u;
       o = o || {};
       defaults(o, opts);
-      return fetchival(u, o);
+      return fetcher(u, o);
     };
 
     _.get = function (queryParams) {
@@ -94,15 +94,15 @@
 
   // Expose fetch so that other polyfills can be used
   // Bind fetch to window to avoid TypeError: Illegal invocation
-  fetchival.fetch = typeof fetch !== 'undefined' ? fetch.bind(window) : null;
+  fetcher.fetch = typeof fetch !== 'undefined' ? fetch.bind(window) : null;
 
   // Support CommonJS, AMD & browser
   if (typeof exports === 'object') {
-    module.exports = fetchival;
+    module.exports = fetcher;
   } else if (typeof define === 'function' && define.amd) {
-    define(function() { return fetchival; });
+    define(function() { return fetcher; });
   } else {
-    window.fetchival = fetchival;
+    window.fetcher = fetcher;
   }
 
 })(typeof window != 'undefined' ? window : undefined);
