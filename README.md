@@ -1,7 +1,7 @@
 # fetcher.js 
 > Makes writing JSON requests with [fetch](https://github.com/github/fetch) easier
 
-> Originally forked from [fetcher.js](https://github.com/typicode/fetcher)
+> Originally forked from [fetchival.js](https://github.com/typicode/fetchival)
 
 Fetcher is a tiny (0.5kb min/gz) fetch wrapper that can be used in the __browser__ (IE9+) and __Node__.
 
