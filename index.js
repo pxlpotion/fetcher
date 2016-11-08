@@ -1,7 +1,11 @@
 ;(function(window) {
 
   function defaults(target, obj) {
-    for (var prop in obj) target[prop] = target[prop] || obj[prop];
+    for (var prop in obj) {
+      if (obj.hasOwnProperty(prop)) {
+        target[prop] = target[prop] || obj[prop];
+      }
+    }
   }
 
   function getQuery(queryParams) {
@@ -10,9 +14,9 @@
       params = '/' + queryParams;
     } else if (typeof queryParams === 'object') {
       params = [];
-      for (var key in queryParams) {
-        if (queryParams.hasOwnProperty(key)) {
-          params.push(key + '=' + queryParams[key]);
+      for (var prop in queryParams) {
+        if (queryParams.hasOwnProperty(prop)) {
+          params.push(prop + '=' + queryParams[prop]);
         }
       }
       params = '?' + params.join('&');
