@@ -6,9 +6,9 @@
 
   function getQuery(queryParams) {
     var params = '';
-    if (typeof queryParams === "number" || typeof queryParams === "string") {
+    if (typeof queryParams === 'number' || typeof queryParams === 'string') {
       params = '/' + queryParams;
-    } else if (typeof queryParams === "object") {
+    } else if (typeof queryParams === 'object') {
       params = [];
       for (var key in queryParams) {
         if (queryParams.hasOwnProperty(key)) {
