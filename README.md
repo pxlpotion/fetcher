@@ -1,9 +1,9 @@
-# fetcher.js 
+# redrover.js 
 > Makes writing JSON requests with [fetch](https://github.com/github/fetch) easier
 
 > Originally forked from [fetchival.js](https://github.com/typicode/fetchival)
 
-Fetcher is a tiny (0.5kb min/gz) fetch wrapper that can be used in the __browser__ (IE9+) and __Node__.
+RedRover is a tiny (0.5kb min/gz) fetch wrapper that can be used in the __browser__ (IE9+) and __Node__.
 
 __Before__
 
@@ -35,7 +35,7 @@ __After__
 
 ```javascript
 // POST /users
-fetcher('/users').post({
+redrover('/users').post({
   name: 'pxlPotion',
   login: 'pxlPotion'
 })
@@ -48,37 +48,37 @@ fetcher('/users').post({
 
 ## Installation
 
-fetcher is available on npm
+redrover is available on npm
 
 __Browser__
 
 ```bash
 npm install es6-promise whatwg-fetch --save # polyfills
-npm install fetcher --save # Browserify
+npm install redrover --save # Browserify
 ```
 
 __Node__
 
 ```bash
-npm install node-fetch fetcher --save
+npm install node-fetch redrover --save
 ```
 
 ## Usage examples
 
 ```javascript
-var posts = fetcher('/posts')
+var posts = redrover('/posts')
 
 //posts
 posts.get()
-posts.post({ title: 'fetcher' })
+posts.post({ title: 'redrover' })
 
 //posts?category=javascript
 posts.get({ category: 'javascript' })
 
 //posts/1
 posts(1).get()
-posts(1).put({ title: 'fetcher is simple' })
-posts(1).patch({ title: 'fetcher is simple' })
+posts(1).put({ title: 'redrover is simple' })
+posts(1).patch({ title: 'redrover is simple' })
 posts(1).delete()
 
 var comments = posts('1/comments')
@@ -90,17 +90,17 @@ comments.get()
 comments(1).get()
 ```
 
-You can also pass fetch options to `fetcher()`
+You can also pass fetch options to `redrover()`
 
 ```javascript
-var posts = fetcher('/posts', fetchOptions)
+var posts = redrover('/posts', fetchOptions)
 var comments = posts('1/comments') // Will inherit fetchOptions
 ```
 
 To catch errors
 
 ```javascript
-fetcher('/posts')
+redrover('/posts')
   .get()
   .catch(function(err) {
     console.log(err)
@@ -110,24 +110,24 @@ fetcher('/posts')
 To enable CORS
 
 ```javascript
-var request = fetcher('/', { mode: 'cors' })
+var request = redrover('/', { mode: 'cors' })
 var posts = request('posts')
 ```
 
 To fetch plain text (for example, HTML views)
 
 ```javascript
-var request = fetcher('/', { responseAs: 'text' })
+var request = redrover('/', { responseAs: 'text' })
 var posts = request('posts')
 ```
 
 `responseAs` can be `response`, `text` or `json` (default)
 
-To use fetcher in Node, you need to install `node-fetch` and configure fetcher to use it
+To use redrover in Node, you need to install `node-fetch` and configure redrover to use it
 
 ```javascript
-var fetcher = require('fetcher')
-fetcher.fetch = require('node-fetch')
+var redrover = require('redrover')
+redrover.fetch = require('node-fetch')
 ```
 
 ## Browser Support

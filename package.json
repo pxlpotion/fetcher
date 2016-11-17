@@ -1,17 +1,18 @@
 {
-  "name": "fetcher",
+  "name": "redrover",
   "version": "0.1.0",
   "description": "Makes JSON requests with fetch easier",
   "main": "index.js",
   "scripts": {
-    "uglify": "uglifyjs -m -r fetcher index.js > index.min.js",
-    "size": "uglifyjs  -m -r fetcher index.js | gzip -9f | wc -c"
+    "uglify": "uglifyjs -m -r redrover index.js > index.min.js",
+    "size": "uglifyjs  -m -r redrover index.js | gzip -9f | wc -c"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pxlpotion/fetcher.git"
+    "url": "https://github.com/pxlpotion/redrover.git"
   },
   "keywords": [
+    "request",
     "fetch",
     "API",
     "JSON",
@@ -20,9 +21,9 @@
   "author": "PxlPotion <info@pxlpotion.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pxlpotion/fetcher/issues"
+    "url": "https://github.com/pxlpotion/redrover/issues"
   },
-  "homepage": "https://github.com/pxlpotion/fetcher",
+  "homepage": "https://github.com/pxlpotion/redrover",
   "devDependencies": {
     "uglify-js": "^2.4.20"
   }
