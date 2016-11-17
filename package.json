@@ -14,6 +14,11 @@
   "keywords": [
     "request",
     "fetch",
+    "whatwg-fetch",
+    "fetchival",
+    "axios",
+    "superagent",
+    "AJAX",
     "API",
     "JSON",
     "REST"
