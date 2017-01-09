@@ -45,21 +45,32 @@
       delete opts.body;
     }
 
-    return redrover.fetch(url, opts)
-      .then(function(response) {
-        if (response.status >= 200 && response.status < 300) {
-          if(opts.responseAs=='response') {
-            return response;
-          }
-          if (response.status == 204) {
-            return null;
-          }
-          return response[opts.responseAs]();
-        }
-        var err = new Error(response.statusText);
-        err.response = response;
-        throw err;
-      });
+    return redrover.fetch(url, opts).then(function(response) {
+			if (response.status >= 200 && response.status < 300) {
+				if(opts.responseAs=='response') {
+					return response;
+				}
+				if (response.status == 204) {
+					return null;
+				}
+				return response[opts.responseAs]();
+			}
+			// An `Error` is thrown to invoke the .catch() method. Because only text can be passed to
+			// `new Error('some error message')`, attch the response (probably JSON) to error.body
+			return  response[opts.responseAs]().catch((parseErr) => {
+				console.error(`Expected response type ${opts.responseAs}, but received: ${response.headers.get("content-type")}`);
+				var error = new Error(response.statusText);
+				error.response = response;
+				error.body = parseErr;
+				throw error;
+			}).then((payload) => {
+				var error = new Error(response.statusText);
+				error.response = response;
+				error.body = payload;
+				throw error;
+			});
+
+		});
   }
 
   function redrover(url, opts) {

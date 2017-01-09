@@ -97,7 +97,7 @@ var posts = redrover('/posts', fetchOptions)
 var comments = posts('1/comments') // Will inherit fetchOptions
 ```
 
-To catch errors
+To catch errors (err.body holds the response)
 
 ```javascript
 redrover('/posts')
