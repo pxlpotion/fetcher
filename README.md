@@ -53,8 +53,8 @@ redrover is available on npm
 __Browser__
 
 ```bash
-npm install es6-promise whatwg-fetch --save # polyfills
-npm install redrover --save # Browserify
+npm install whatwg-fetch --save # fetch polyfill for unsupported browsers
+npm install redrover --save
 ```
 
 __Node__
