@@ -93,7 +93,7 @@
     };
 
     _.put = function(data) {
-      return _fetch('PUT', url, opts, data);
+      return _fetch('PUT', url, opts, data, queryParams);
     };
 
     _.patch = function(data) {
