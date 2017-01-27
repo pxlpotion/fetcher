@@ -92,7 +92,7 @@
       return _fetch('POST', url, opts, data);
     };
 
-    _.put = function(data) {
+    _.put = function(data, queryParams) {
       return _fetch('PUT', url, opts, data, queryParams);
     };
 
