@@ -88,8 +88,8 @@
       return _fetch('GET', url, opts, null, queryParams);
     };
 
-    _.post = function(data) {
-      return _fetch('POST', url, opts, data);
+    _.post = function(data, queryParams) {
+      return _fetch('POST', url, opts, data, queryParams);
     };
 
     _.put = function(data, queryParams) {
