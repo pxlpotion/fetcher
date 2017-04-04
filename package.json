@@ -2,10 +2,9 @@
   "name": "redrover",
   "version": "0.1.0",
   "description": "Makes JSON requests with fetch easier",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
-    "uglify": "uglifyjs -m -r redrover index.js > index.min.js",
-    "size": "uglifyjs  -m -r redrover index.js | gzip -9f | wc -c"
+    "build": "./node_modules/.bin/webpack -p"
   },
   "repository": {
     "type": "git",
@@ -23,13 +22,19 @@
     "JSON",
     "REST"
   ],
-  "author": "PxlPotion <info@pxlpotion.com>",
+  "author": "DaddyWarbucks | PxlPotion",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/pxlpotion/redrover/issues"
   },
   "homepage": "https://github.com/pxlpotion/redrover",
   "devDependencies": {
-    "uglify-js": "^2.4.20"
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "webpack": "^2.3.3"
+  },
+  "dependencies": {
+    "whatwg-fetch": "^2.0.3"
   }
 }

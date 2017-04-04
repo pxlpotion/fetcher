@@ -48,12 +48,11 @@ redrover('/users').post({
 
 ## Installation
 
-redrover is available on npm
+whatwg-fetch comes preinstalled (fetch polyfill for unsupported browsers)
 
 __Browser__
 
 ```bash
-npm install whatwg-fetch --save # fetch polyfill for unsupported browsers
 npm install redrover --save
 ```
 

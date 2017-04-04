@@ -1,3 +1,5 @@
+import 'whatwg-fetch';
+
 ;(function(window) {
 
   function defaults(target, obj) {
