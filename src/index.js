@@ -66,10 +66,10 @@ import 'whatwg-fetch';
 //				error.body = parseErr;
 				throw parseErr;
 			}).then((payload) => {
-				var error = new Error(response.statusText);
-				error.response = response;
-				error.body = payload;
-				throw error;
+//				var error = new Error(response.statusText);
+//				error.response = response;
+//				error.body = payload;
+				throw payload;
 			});
 
 		});
