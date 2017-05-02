@@ -61,10 +61,10 @@ import 'whatwg-fetch';
 			// `new Error('some error message')`, attch the response (probably JSON) to error.body
 			return  response[opts.responseAs]().catch((parseErr) => {
 				console.error(`Expected response type ${opts.responseAs}, but received: ${response.headers.get("content-type")}`);
-				var error = new Error(response.statusText);
-				error.response = response;
-				error.body = parseErr;
-				throw error;
+//				var error = new Error(response.statusText);
+//				error.response = response;
+//				error.body = parseErr;
+				throw parseErr;
 			}).then((payload) => {
 				var error = new Error(response.statusText);
 				error.response = response;
